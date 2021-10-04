@@ -1,2 +1,3 @@
-export const BASE_URL =
-    "https://apimgmt-pacificodesa.azure-api.net/api/rm-ne-servicio-al-cliente-consulta-pga/v1/api/prisma/";
+import { Environment } from "packages/infra/environment/environment";
+
+export const BASE_URL = Environment.string("SERVER_URL");
