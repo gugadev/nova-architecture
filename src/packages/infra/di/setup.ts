@@ -1,11 +1,11 @@
 import { container } from "tsyringe";
 
 import { PolicyAdapter } from "packages/application/adapters/policy-adapter";
-import { LocalStorage } from "packages/infra/local-storage/LocalStorage";
+import { LocalStorage } from "packages/infra/storage/local/LocalStorage";
 import { PolicyDataSource } from "packages/core/domain/remote/PolicyDataSource";
 import { PolicyRepository } from "packages/core/repository/PolicyRepository";
 import { HttpProvider } from "packages/infra/http/HttpProvider";
-import { ILocalStorage } from "packages/infra/local-storage/ILocalStorage";
+import { ILocalStorage } from "packages/infra/storage/local/ILocalStorage";
 import { IPolicyAdapter } from "packages/application/adapters/IPolicyAdapter";
 import { IHttpProvider } from "packages/infra/http/IHttpProvider";
 import { IPolicyDataSource } from "packages/core/domain/remote/IPolicyDataSource";

@@ -4,7 +4,7 @@ import { HomeViewModel } from "packages/home/presentation/HomeViewModel";
 import { useGetPgaPolicies } from "packages/home/presentation/hooks/useGetPgaPolicies";
 import { HomeLoading } from "packages/home/ui/HomeLoading";
 import { Home } from "packages/home/ui/Home";
-import { ILocalStorage } from "packages/infra/local-storage/ILocalStorage";
+import { ILocalStorage } from "packages/infra/storage/local/ILocalStorage";
 
 export const HomePresenter = (): JSX.Element => {
     const storage = container.resolve<ILocalStorage>("ILocalStorage");

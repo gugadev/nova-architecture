@@ -4,7 +4,7 @@ import { Policy } from "packages/core/domain/entities/Policy";
 import { IPolicyDataSource } from "packages/core/domain/remote/IPolicyDataSource";
 import { VehiclePolicy } from "packages/core/domain/entities/VehiclePolicy";
 import { HealthPolicy } from "packages/core/domain/entities/HealthPolicy";
-import { ILocalStorage } from "packages/infra/local-storage/ILocalStorage";
+import { ILocalStorage } from "packages/infra/storage/local/ILocalStorage";
 import { IHttpProvider } from "packages/infra/http/IHttpProvider";
 import { IPolicyAdapter } from "packages/application/adapters/IPolicyAdapter";
 

@@ -1,5 +1,5 @@
 import { injectable } from "tsyringe";
-import { ILocalStorage } from "packages/infra/local-storage/ILocalStorage";
+import { ILocalStorage } from "packages/infra/storage/local/ILocalStorage";
 
 @injectable()
 export class LocalStorage implements ILocalStorage {
