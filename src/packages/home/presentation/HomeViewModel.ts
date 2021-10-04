@@ -10,7 +10,6 @@ export class HomeViewModel {
     ) {}
 
     getPgaPolicies(userIdentity: string): Promise<Array<Policy>> {
-        console.log("repository", this);
         return this.repository.getPgaPolicies(userIdentity);
     }
 }

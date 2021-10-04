@@ -30,10 +30,10 @@
     "src/**/*.ts",
     "tools/**/*.js",
     "scripts/**/*.js",
+    "craco.config.js",
     "__mocks__/**/*.ts"
   ],
   "exclude": [
-    "vendor",
     "public"
   ]
 }

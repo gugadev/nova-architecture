@@ -28,9 +28,9 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test",
     "eject": "react-scripts eject",
     "lint": "eslint src/**/*.{ts,tsx} --fix"
   },
@@ -53,6 +53,8 @@
     ]
   },
   "devDependencies": {
+    "@craco/craco": "^6.3.0",
+    "babel-plugin-transform-typescript-metadata": "^0.3.2",
     "eslint": "^7.32.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-airbnb-typescript": "^14.0.0",

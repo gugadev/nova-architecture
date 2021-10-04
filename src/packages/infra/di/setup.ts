@@ -8,8 +8,8 @@ import { HttpProvider } from "packages/infra/http/HttpProvider";
 import { ILocalStorage } from "packages/infra/local-storage/ILocalStorage";
 import { IPolicyAdapter } from "packages/application/adapters/IPolicyAdapter";
 import { IHttpProvider } from "packages/infra/http/IHttpProvider";
-import { IPolicyDataSource } from "../domain/remote/IPolicyDataSource";
-import { IPolicyRepository } from "../repository/IPolicyRepository";
+import { IPolicyDataSource } from "packages/core/domain/remote/IPolicyDataSource";
+import { IPolicyRepository } from "packages/core/repository/IPolicyRepository";
 
 /**
  * If we have a class implementing an interface,

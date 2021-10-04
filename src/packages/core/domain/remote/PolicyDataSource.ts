@@ -19,7 +19,7 @@ export class PolicyDataSource implements IPolicyDataSource {
     constructor(
         @inject("IHttpProvider") private http: IHttpProvider,
         @inject("IPolicyAdapter") private adapter: IPolicyAdapter,
-        @inject("IStorage") private storage: ILocalStorage
+        @inject("ILocalStorage") private storage: ILocalStorage
     ) {}
 
     async getPgaPolicies(userIdentity: string): Promise<Array<Policy>> {
@@ -31,7 +31,9 @@ export class PolicyDataSource implements IPolicyDataSource {
             PoliciesEndpoints.Pga,
             options
         );
-        return policies.map(this.adapter.turnIntoModel);
+        return policies.map((policy) =>
+            this.adapter.turnIntoModel<Policy>(policy)
+        );
     }
 
     async getVehiclePolicies(

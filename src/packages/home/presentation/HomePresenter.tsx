@@ -7,7 +7,7 @@ import { Home } from "packages/home/ui/Home";
 import { ILocalStorage } from "packages/infra/local-storage/ILocalStorage";
 
 export const HomePresenter = (): JSX.Element => {
-    const storage = container.resolve<ILocalStorage>("IStorage");
+    const storage = container.resolve<ILocalStorage>("ILocalStorage");
     const vm = container.resolve<HomeViewModel>(HomeViewModel);
 
     const identity = storage.get<string>("user_identity");
@@ -17,6 +17,8 @@ export const HomePresenter = (): JSX.Element => {
     if (result.isFetching) {
         return <HomeLoading />;
     }
-
+    if (result.isError) {
+        return <h1>Error</h1>;
+    }
     return <Home pgaPolicies={result.data ?? []} />;
 };
