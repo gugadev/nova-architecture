@@ -2,6 +2,8 @@
 
 This frontend architecture was built based on Clean Architecture specifications and inspired on Android's MVVM design model.
 
+<p align="center"><img src="https://e00-elmundo.uecdn.es/blogs/elmundo/elporquedelascosas/imagenes_posts/2017/02/24/180395_635x460.jpg" /></p>
+
 ## Dependency Injection
 
 Dependency Injection is done using [tsyringe](https://github.com/microsoft/tsyringe).
