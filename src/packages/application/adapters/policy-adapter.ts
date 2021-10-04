@@ -1,6 +1,11 @@
-import { injectable } from "inversify";
+import { injectable } from "tsyringe";
 
-import { AutosProducts, EPSProducts, HealthProducts, SOATProducts } from "packages/application/constants/product-codes";
+import {
+    AutosProducts,
+    EPSProducts,
+    HealthProducts,
+    SOATProducts,
+} from "packages/application/constants/product-codes";
 import { ProductCategories } from "packages/application/constants/product-categories";
 import { Policy } from "packages/core/domain/entities/Policy";
 import { HealthPolicy } from "packages/core/domain/entities/HealthPolicy";
@@ -12,8 +17,9 @@ import { IPolicyAdapter } from "packages/application/adapters/IPolicyAdapter";
 
 @injectable()
 export class PolicyAdapter implements IPolicyAdapter {
-
-    private turnIntoPgaFormat(rawPolicy: Record<string, any>): Record<string, any> {
+    private turnIntoPgaFormat(
+        rawPolicy: Record<string, any>
+    ): Record<string, any> {
         if (Object.values(HealthProducts).includes(rawPolicy.productCode)) {
             const product = {
                 category: ProductCategories.SALUD,
@@ -109,20 +115,30 @@ export class PolicyAdapter implements IPolicyAdapter {
             };
         }
         return rawPolicy as Policy;
-    };
-    
-    
+    }
+
     turnIntoModel<T extends Policy>(rawPolicy: Record<string, any>): T {
         const formattedPolicy = this.turnIntoPgaFormat(rawPolicy);
         switch (formattedPolicy.product.category) {
-            case ProductCategories.SALUD: return HealthPolicy.fromJson(formattedPolicy);
-            case ProductCategories.AUTOS: return VehiclePolicy.fromJson(formattedPolicy);
-            case ProductCategories.SOAT: return SoatPolicy.fromJson(formattedPolicy);
-            case ProductCategories.VIDA: return VehiclePolicy.fromJson(formattedPolicy);
-            case ProductCategories.HIPOTECARIO: return HouseholdPolicy.fromJson(formattedPolicy);
-            case ProductCategories.HOGAR: return HouseholdPolicy.fromJson(formattedPolicy);
-            case ProductCategories.SALUD && (Object.values(EPSProducts).includes(formattedPolicy.product.code)): return EpsPlan.fromJson(formattedPolicy);
-            default: return Policy.fromJson(formattedPolicy);
+            case ProductCategories.SALUD:
+                return HealthPolicy.fromJson(formattedPolicy);
+            case ProductCategories.AUTOS:
+                return VehiclePolicy.fromJson(formattedPolicy);
+            case ProductCategories.SOAT:
+                return SoatPolicy.fromJson(formattedPolicy);
+            case ProductCategories.VIDA:
+                return VehiclePolicy.fromJson(formattedPolicy);
+            case ProductCategories.HIPOTECARIO:
+                return HouseholdPolicy.fromJson(formattedPolicy);
+            case ProductCategories.HOGAR:
+                return HouseholdPolicy.fromJson(formattedPolicy);
+            case ProductCategories.SALUD &&
+                Object.values(EPSProducts).includes(
+                    formattedPolicy.product.code
+                ):
+                return EpsPlan.fromJson(formattedPolicy);
+            default:
+                return Policy.fromJson(formattedPolicy);
         }
     }
 }

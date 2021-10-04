@@ -1,15 +1,16 @@
-import { inject, injectable } from "inversify";
+import { inject, injectable } from "tsyringe";
 
 import { Policy } from "packages/core/domain/entities/Policy";
 import { IPolicyRepository } from "packages/core/repository/IPolicyRepository";
 
 @injectable()
 export class HomeViewModel {
-    @inject("IPolicyRepository") private repository?: IPolicyRepository;
+    constructor(
+        @inject("IPolicyRepository") private repository: IPolicyRepository
+    ) {}
 
-    // constructor(@inject("IPolicyRepository") private repository: IPolicyRepository) {}
-
-    getPolicies(userIdentity: string): Promise<Array<Policy>> {
-        return this.repository!.getPgaPolicies(userIdentity);
+    getPgaPolicies(userIdentity: string): Promise<Array<Policy>> {
+        console.log("repository", this);
+        return this.repository.getPgaPolicies(userIdentity);
     }
 }

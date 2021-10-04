@@ -7,7 +7,10 @@ import { Coupon } from "./PaymentCoupon";
 
 export class PaymentSummary extends BaseModel {
     @Expose() allowPaymentSplit?: boolean;
+
     @Expose() policyId?: number;
+
     @Expose() debitMembership?: DebitMembership | null;
+
     @Expose() coupons?: Coupon[];
 }

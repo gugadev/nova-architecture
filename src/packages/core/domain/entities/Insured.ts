@@ -9,8 +9,12 @@ export enum InsuredType {
 
 export class Insured extends BaseModel {
     @Expose() policyId = -1;
+
     @Expose() userIdentity = "";
+
     @Expose() code = "";
+
     @Expose() type = InsuredType.Dependent;
+
     @Expose() fullName = "";
 }

@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { FC } from "react";
 
 import { Policy } from "packages/core/domain/entities/Policy";
 import { HealthPolicy } from "packages/core/domain/entities/HealthPolicy";
@@ -10,19 +10,19 @@ type Props = {
     plans?: Array<EpsPlan>;
     healthPolicies?: Array<HealthPolicy>;
     vehiclePolicies?: Array<VehiclePolicy>;
-}
+};
 
-export const Home: FC<Props> = ({ pgaPolicies }) => {
+export const Home: FC<Props> = ({ pgaPolicies }): JSX.Element => {
     return (
         <div>
             <h1>Pga Policies</h1>
             <br />
             <ul>
-                {
-                    pgaPolicies.map(policy => (
-                        <li key={policy.id}>{policy.number} - {policy.product.category}</li>
-                    ))
-                }
+                {pgaPolicies.map((policy) => (
+                    <li key={policy.id}>
+                        {policy.number} - {policy.product.category}
+                    </li>
+                ))}
             </ul>
         </div>
     );

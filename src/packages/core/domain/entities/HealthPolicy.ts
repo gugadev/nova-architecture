@@ -5,8 +5,11 @@ import { Policy } from "./Policy";
 
 export class HealthPolicy extends Policy {
     @Expose() codPlan = "";
+
     @Expose() revPlan = "";
+
     @Expose() status = "";
+
     @Expose()
     @Type(() => Dependent)
     dependents?: Dependent[];

@@ -1,5 +1,1 @@
-import React from 'react'
-
-export const HomeLoading = () => (
-    <h1>Cargando...</h1>
-);
+export const HomeLoading = (): JSX.Element => <h1>Cargando...</h1>;

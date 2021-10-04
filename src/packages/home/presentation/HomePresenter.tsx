@@ -1,16 +1,22 @@
-import { HomeViewModel } from "packages/home/presentation/HomeViewModel"
-import { useGetPolicies } from "packages/home/presentation/hooks/useGetPgaPolicies";
+import { container } from "tsyringe";
+
+import { HomeViewModel } from "packages/home/presentation/HomeViewModel";
+import { useGetPgaPolicies } from "packages/home/presentation/hooks/useGetPgaPolicies";
 import { HomeLoading } from "packages/home/ui/HomeLoading";
 import { Home } from "packages/home/ui/Home";
-import { MepDependenciesContainer } from "packages/core/di/inversify.config";
+import { IStorage } from "packages/infra/local-storage/IStorage";
 
-export const HomePresenter = () => {
-    const viewModel: HomeViewModel = MepDependenciesContainer.get<HomeViewModel>("HomeViewModel");
-    const userIdentity = "dni-20878393";
-    const policiesResult = useGetPolicies(() => viewModel.getPolicies(userIdentity));
+export const HomePresenter = (): JSX.Element => {
+    const storage = container.resolve<IStorage>("IStorage");
+    const vm = container.resolve<HomeViewModel>(HomeViewModel);
 
-    if (policiesResult.isFetching) {
+    const identity = storage.get<string>("user_identity");
+
+    const result = useGetPgaPolicies(() => vm.getPgaPolicies(identity));
+
+    if (result.isFetching) {
         return <HomeLoading />;
     }
-    return <Home pgaPolicies={policiesResult.data ?? []} />;
-}
+
+    return <Home pgaPolicies={result.data ?? []} />;
+};
