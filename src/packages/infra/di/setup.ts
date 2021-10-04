@@ -1,6 +1,6 @@
 import { container } from "tsyringe";
 
-import { PolicyAdapter } from "packages/application/adapters/policy-adapter";
+import { PolicyAdapter } from "packages/application/adapters/PolicyAdapter";
 import { LocalStorage } from "packages/infra/storage/local/LocalStorage";
 import { PolicyDataSource } from "packages/core/domain/remote/PolicyDataSource";
 import { PolicyRepository } from "packages/core/repository/PolicyRepository";
