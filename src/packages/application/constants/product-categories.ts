@@ -1,0 +1,15 @@
+export enum ProductCategories {
+    SALUD = "Salud",
+    RIESGOS_GENERALES = "Riesgos Generales",
+    VIDA = "Vida",
+    AUTOS = "Autos",
+    VIAJES = "Viajes",
+    HOGAR = "Hogar",
+    SOAT = "SOAT",
+    PROTAR = "Protección de Tarjeta",
+    HIPOTECARIO = "Hipotecario",
+    ACCIDENTES = "Accidentes",
+    RENTAS = "Rentas",
+    SEPELIO = "Sepelio",
+    UNKNOWN = "UNKNOWN",
+}
