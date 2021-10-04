@@ -4,7 +4,7 @@ import { Policy } from "packages/core/domain/entities/Policy";
 import { IPolicyDataSource } from "packages/core/domain/remote/IPolicyDataSource";
 import { VehiclePolicy } from "packages/core/domain/entities/VehiclePolicy";
 import { HealthPolicy } from "packages/core/domain/entities/HealthPolicy";
-import { IStorage } from "packages/infra/local-storage/IStorage";
+import { ILocalStorage } from "packages/infra/local-storage/ILocalStorage";
 import { IHttpProvider } from "packages/infra/http/IHttpProvider";
 import { IPolicyAdapter } from "packages/application/adapters/IPolicyAdapter";
 
@@ -19,7 +19,7 @@ export class PolicyDataSource implements IPolicyDataSource {
     constructor(
         @inject("IHttpProvider") private http: IHttpProvider,
         @inject("IPolicyAdapter") private adapter: IPolicyAdapter,
-        @inject("IStorage") private storage: IStorage
+        @inject("IStorage") private storage: ILocalStorage
     ) {}
 
     async getPgaPolicies(userIdentity: string): Promise<Array<Policy>> {

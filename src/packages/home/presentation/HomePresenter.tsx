@@ -4,10 +4,10 @@ import { HomeViewModel } from "packages/home/presentation/HomeViewModel";
 import { useGetPgaPolicies } from "packages/home/presentation/hooks/useGetPgaPolicies";
 import { HomeLoading } from "packages/home/ui/HomeLoading";
 import { Home } from "packages/home/ui/Home";
-import { IStorage } from "packages/infra/local-storage/IStorage";
+import { ILocalStorage } from "packages/infra/local-storage/ILocalStorage";
 
 export const HomePresenter = (): JSX.Element => {
-    const storage = container.resolve<IStorage>("IStorage");
+    const storage = container.resolve<ILocalStorage>("IStorage");
     const vm = container.resolve<HomeViewModel>(HomeViewModel);
 
     const identity = storage.get<string>("user_identity");

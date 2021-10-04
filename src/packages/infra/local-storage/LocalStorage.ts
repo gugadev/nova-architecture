@@ -1,8 +1,8 @@
 import { injectable } from "tsyringe";
-import { IStorage } from "packages/infra/local-storage/IStorage";
+import { ILocalStorage } from "packages/infra/local-storage/ILocalStorage";
 
 @injectable()
-export class LocalStorage implements IStorage {
+export class LocalStorage implements ILocalStorage {
     get<T>(key: string): T {
         const value = localStorage.getItem(key);
         if (value) {
